@@ -1,6 +1,6 @@
 Package: makepipe
 Title: Pipeline Tools Inspired by 'GNU Make'
-Version: 0.0.4
+Version: 0.0.5
 Authors@R: 
     person(given = "Kinto",
            family = "Behr",
@@ -24,8 +24,8 @@ Config/testthat/edition: 3
 Encoding: UTF-8
 RoxygenNote: 7.1.2
 NeedsCompilation: no
-Packaged: 2021-10-28 02:03:55 UTC; kinto
+Packaged: 2021-11-03 11:58:10 UTC; kinto
 Author: Kinto Behr [aut, cre, cph]
 Maintainer: Kinto Behr <kinto.behr@gmail.com>
 Repository: CRAN
-Date/Publication: 2021-10-29 08:00:02 UTC
+Date/Publication: 2021-11-04 00:10:13 UTC
