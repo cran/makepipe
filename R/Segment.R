@@ -67,13 +67,6 @@ Segment <- R6::R6Class("Segment",
 
       find.package(packages) # Error if package cannot be found
 
-      miss_deps <- FALSE
-      if (!is.null(dependencies)) miss_deps <- !file.exists(dependencies)
-      if (any(miss_deps)) {
-        stop('One or more `dependencies` do not exist: ', dependencies[miss_deps],
-             call. = FALSE)
-      }
-
       if (any(targets %in% dependencies)) {
         stop("`dependencies` must not be among the `targets`", call. = FALSE)
       }
@@ -217,7 +210,7 @@ SegmentRecipe <- R6::R6Class("SegmentRecipe",
       if (!is.language(recipe)) stop("`recipe` must be an expression", call. = FALSE)
       super$initialize(id, targets, dependencies, packages, envir, force, executed, result, execution_time)
 
-      instructions_txt <- paste(deparse(recipe), collapse = "\n")
+      instructions_txt <- robust_deparse(recipe)
       instructions_txt <- paste0("Recipe: \n\n", instructions_txt, "\n")
       result_txt <- ifelse(is.null(result), "Result: 0 object(s)", "Result: 1 object(s)")
 
@@ -230,7 +223,7 @@ SegmentRecipe <- R6::R6Class("SegmentRecipe",
 
     #' @description Printing method
     print = function() {
-      instructions_txt <- paste(deparse(self$recipe), collapse = "\n")
+      instructions_txt <- robust_deparse(self$recipe)
       instructions_txt <- paste0("Recipe: \n\n", instructions_txt, "\n")
       private$instructions_txt <- instructions_txt
       super$print()
@@ -282,7 +275,7 @@ SegmentRecipe <- R6::R6Class("SegmentRecipe",
   active = list(
     #' @field edges Construct edges connecting the dependencies, instructions, and targets
     edges = function() {
-      private$instructions_txt <- paste(deparse(self$recipe), collapse = "\n")
+      private$instructions_txt <- robust_deparse(self$recipe)
       super$edges
     }
   )

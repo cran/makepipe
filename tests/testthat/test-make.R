@@ -132,12 +132,12 @@ test_that("targets not rebuilt if newer than package", {
 
 # Errors -----------------------------------------------------------------------
 ## make_with_source ------------------------------------------------------------
-test_that("error thrown if dependency doesn't exist", {
-  expect_error(make_with_source(
+test_that("warning signalled if dependency doesn't exist", {
+  expect_warning(make_with_source(
     source1,
     target1,
     "filedoesntexist.Rds"
-  ))
+  ), "filedoesntexist.Rds")
 })
 
 test_that("error thrown if source doesn't exist", {
@@ -167,12 +167,12 @@ test_that("error thrown if make_*() contains loops", {
 })
 
 ## make_with_recipe ------------------------------------------------------------
-test_that("error thrown if dependency doesn't exist", {
-  expect_error(make_with_recipe(
+test_that("warning signalled if dependency doesn't exist", {
+  expect_warning(make_with_recipe(
     {1+1},
     target1,
     "filedoesntexist.Rds"
-  ))
+  ), "filedoesntexist.Rds")
 })
 
 ## Environment -----------------------------------------------------------------
@@ -309,6 +309,36 @@ test_that("make_with_source result prints nicely", {
   order_filetimes(dependency, source1, target1)
   x <- make_with_source(source1, target1, dependency, quiet = TRUE)
   expect_output(print(x), regexp = "* Executed: FALSE")
+})
+
+
+# Bug fixes --------------------------------------------------------------------
+
+test_that("long recipes are okay", {
+  x <- make_with_recipe(
+    recipe = {
+      new_cars <- cars
+      new_cars$a <- 1
+      new_cars$b <- 2
+      new_cars$c <- 3
+      new_cars$d <- 4
+      new_cars$e <- 5
+      new_cars$f <- 6
+      new_cars$g <- 7
+      new_cars$h <- 8
+      new_cars$i <- 9
+      new_cars$i <- 11
+      new_cars$j <- 12
+      new_cars$k <- 13
+      new_cars$l <- 14
+      new_cars$m <- 15
+      new_cars$n <- 16
+    },
+    dependencies = dependency,
+    targets = target1
+  )
+
+  expect_output(print(x), regexp = "* Recipe: ")
 })
 
 
