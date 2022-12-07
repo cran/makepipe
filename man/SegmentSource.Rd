@@ -25,32 +25,26 @@ Other segment:
 }
 \if{html}{\out{</div>}}
 }
-\section{Active bindings}{
-\if{html}{\out{<div class="r6-active-bindings">}}
-\describe{
-\item{\code{edges}}{Construct edges connecting the dependencies, instructions, and targets}
-}
-\if{html}{\out{</div>}}
-}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{SegmentSource$new()}}
-\item \href{#method-print}{\code{SegmentSource$print()}}
-\item \href{#method-update_result}{\code{SegmentSource$update_result()}}
-\item \href{#method-execute}{\code{SegmentSource$execute()}}
-\item \href{#method-clone}{\code{SegmentSource$clone()}}
+\item \href{#method-SegmentSource-new}{\code{SegmentSource$new()}}
+\item \href{#method-SegmentSource-update_result}{\code{SegmentSource$update_result()}}
+\item \href{#method-SegmentSource-execute}{\code{SegmentSource$execute()}}
+\item \href{#method-SegmentSource-clone}{\code{SegmentSource$clone()}}
 }
 }
-\if{html}{
-\out{<details open ><summary>Inherited methods</summary>}
-\itemize{
-}
-\out{</details>}
-}
+\if{html}{\out{
+<details open><summary>Inherited methods</summary>
+<ul>
+<li><span class="pkg-link" data-pkg="makepipe" data-topic="Segment" data-id="annotate"><a href='../../makepipe/html/Segment.html#method-Segment-annotate'><code>makepipe::Segment$annotate()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="makepipe" data-topic="Segment" data-id="print"><a href='../../makepipe/html/Segment.html#method-Segment-print'><code>makepipe::Segment$print()</code></a></span></li>
+</ul>
+</details>
+}}
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-SegmentSource-new"></a>}}
+\if{latex}{\out{\hypertarget{method-SegmentSource-new}{}}}
 \subsection{Method \code{new()}}{
 Initialise a new Segment
 \subsection{Usage}{
@@ -99,18 +93,8 @@ out-of-date)}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-print"></a>}}
-\if{latex}{\out{\hypertarget{method-print}{}}}
-\subsection{Method \code{print()}}{
-Printing method
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{SegmentSource$print()}\if{html}{\out{</div>}}
-}
-
-}
-\if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-update_result"></a>}}
-\if{latex}{\out{\hypertarget{method-update_result}{}}}
+\if{html}{\out{<a id="method-SegmentSource-update_result"></a>}}
+\if{latex}{\out{\hypertarget{method-SegmentSource-update_result}{}}}
 \subsection{Method \code{update_result()}}{
 Update the Segment with new execution information
 \subsection{Usage}{
@@ -130,8 +114,8 @@ Update the Segment with new execution information
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-execute"></a>}}
-\if{latex}{\out{\hypertarget{method-execute}{}}}
+\if{html}{\out{<a id="method-SegmentSource-execute"></a>}}
+\if{latex}{\out{\hypertarget{method-SegmentSource-execute}{}}}
 \subsection{Method \code{execute()}}{
 Execute the Segment
 \subsection{Usage}{
@@ -151,8 +135,8 @@ Execute the Segment
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-SegmentSource-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-SegmentSource-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

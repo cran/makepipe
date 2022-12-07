@@ -7,9 +7,9 @@
 
 [![Codecov test
 coverage](https://codecov.io/gh/kinto-b/makepipe/branch/master/graph/badge.svg)](https://app.codecov.io/gh/kinto-b/makepipe?branch=master)
-[![R-CMD-check](https://github.com/kinto-b/makepipe/workflows/R-CMD-check/badge.svg)](https://github.com/kinto-b/makepipe/actions)
 [![CRAN
 status](https://www.r-pkg.org/badges/version/makepipe)](https://CRAN.R-project.org/package=makepipe)
+[![R-CMD-check](https://github.com/kinto-b/makepipe/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/kinto-b/makepipe/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
 The goal of `makepipe` is to allow for the construction of make-like
@@ -90,6 +90,53 @@ show_pipeline(as = "visnetwork")
 
 <img src="man/figures/pipeline_visnetwork_uptodate.png" width="75%" style="display: block; margin: auto;" />
 
+Or a text summary (which can be saved to a .md file),
+
+``` r
+show_pipeline(as = "text")
+
+#> # Pipeline
+#> 
+#> ## one.R
+#> 
+#> Clean raw survey data and do derivations
+#> 
+#> * Source: 'one.R'
+#> * Targets: 'data/1 data.Rds'
+#> * File dependencies: 'data/raw.Rds', 'lookup/concordance.csv'
+#> * Executed: FALSE
+#> * Environment: 0x0000015399acfeb8
+#> 
+#> ## Merge it!
+#> 
+#> Merge demographic variables from population data into survey data
+#> 
+#> * Recipe: 
+#> 
+#> {
+#>     dat <- readRDS("data/1 data.Rds")
+#>     pop <- readRDS("data/pop.Rds")
+#>     saveRDS(dat, "data/2_data.Rds")
+#> }
+#> 
+#> * Targets: 'data/2 data.Rds'
+#> * File dependencies: 'data/1 data.Rds', 'data/pop.Rds'
+#> * Executed: TRUE
+#> * Execution time: 0.00103879 secs
+#> * Result: 0 object(s)
+#> * Environment: 0x0000015390c6c568
+#> 
+#> ## three.R
+#> 
+#> Convert data from 'wide' to 'long' format
+#> 
+#> * Source: 'three.R'
+#> * Targets: 'data/3 data.Rds'
+#> * File dependencies: 'data/2 data.Rds'
+#> * Executed: FALSE
+#> * Environment: 0x00000153928570f8
+```
+
 Once you’ve constructed a pipeline, you can ‘clean’ it (i.e. delete all
 registered targets):
 
@@ -114,3 +161,21 @@ re-create the cleaned targets:
 p <- get_pipeline()
 p$build()
 ```
+
+Another way to build a pipeline is to add a roxygen header into your .R
+scripts containing a special `@makepipe` tag along with the `@targets`,
+`@dependencies`, and so on. For example, at the top of script `one.R`
+you might have
+
+``` r
+#'@title Load
+#'@description Clean raw survey data and do derivations
+#'@dependencies "data/raw.Rds", "lookup/concordance.csv"
+#'@targets "data/1 data.Rds"
+#'@makepipe
+NULL
+```
+
+You can then call `make_with_dir()`, which will construct a pipeline
+using all the scripts it finds in the provided directory containing the
+`@makepipe` tag.

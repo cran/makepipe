@@ -25,23 +25,25 @@ Other pipeline:
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-add_source_segment}{\code{Pipeline$add_source_segment()}}
-\item \href{#method-add_recipe_segment}{\code{Pipeline$add_recipe_segment()}}
-\item \href{#method-build}{\code{Pipeline$build()}}
-\item \href{#method-clean}{\code{Pipeline$clean()}}
-\item \href{#method-annotate}{\code{Pipeline$annotate()}}
-\item \href{#method-refresh}{\code{Pipeline$refresh()}}
-\item \href{#method-nomnoml}{\code{Pipeline$nomnoml()}}
-\item \href{#method-visnetwork}{\code{Pipeline$visnetwork()}}
-\item \href{#method-print}{\code{Pipeline$print()}}
-\item \href{#method-save_visnetwork}{\code{Pipeline$save_visnetwork()}}
-\item \href{#method-save_nomnoml}{\code{Pipeline$save_nomnoml()}}
-\item \href{#method-clone}{\code{Pipeline$clone()}}
+\item \href{#method-Pipeline-add_source_segment}{\code{Pipeline$add_source_segment()}}
+\item \href{#method-Pipeline-add_recipe_segment}{\code{Pipeline$add_recipe_segment()}}
+\item \href{#method-Pipeline-build}{\code{Pipeline$build()}}
+\item \href{#method-Pipeline-clean}{\code{Pipeline$clean()}}
+\item \href{#method-Pipeline-annotate}{\code{Pipeline$annotate()}}
+\item \href{#method-Pipeline-refresh}{\code{Pipeline$refresh()}}
+\item \href{#method-Pipeline-nomnoml}{\code{Pipeline$nomnoml()}}
+\item \href{#method-Pipeline-visnetwork}{\code{Pipeline$visnetwork()}}
+\item \href{#method-Pipeline-text_summary}{\code{Pipeline$text_summary()}}
+\item \href{#method-Pipeline-print}{\code{Pipeline$print()}}
+\item \href{#method-Pipeline-save_visnetwork}{\code{Pipeline$save_visnetwork()}}
+\item \href{#method-Pipeline-save_nomnoml}{\code{Pipeline$save_nomnoml()}}
+\item \href{#method-Pipeline-save_text_summary}{\code{Pipeline$save_text_summary()}}
+\item \href{#method-Pipeline-clone}{\code{Pipeline$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-add_source_segment"></a>}}
-\if{latex}{\out{\hypertarget{method-add_source_segment}{}}}
+\if{html}{\out{<a id="method-Pipeline-add_source_segment"></a>}}
+\if{latex}{\out{\hypertarget{method-Pipeline-add_source_segment}{}}}
 \subsection{Method \code{add_source_segment()}}{
 Add an edge to \code{edges}
 
@@ -95,8 +97,8 @@ The \code{SegmentSource} added to the \code{Pipeline}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-add_recipe_segment"></a>}}
-\if{latex}{\out{\hypertarget{method-add_recipe_segment}{}}}
+\if{html}{\out{<a id="method-Pipeline-add_recipe_segment"></a>}}
+\if{latex}{\out{\hypertarget{method-Pipeline-add_recipe_segment}{}}}
 \subsection{Method \code{add_recipe_segment()}}{
 Add a pipeline segment corresponding to a \code{make_with_recipe()}
 call
@@ -137,8 +139,8 @@ The \code{SegmentRecipe} added to the \code{Pipeline}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-build"></a>}}
-\if{latex}{\out{\hypertarget{method-build}{}}}
+\if{html}{\out{<a id="method-Pipeline-build"></a>}}
+\if{latex}{\out{\hypertarget{method-Pipeline-build}{}}}
 \subsection{Method \code{build()}}{
 Build all targets
 \subsection{Usage}{
@@ -157,8 +159,8 @@ Build all targets
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clean"></a>}}
-\if{latex}{\out{\hypertarget{method-clean}{}}}
+\if{html}{\out{<a id="method-Pipeline-clean"></a>}}
+\if{latex}{\out{\hypertarget{method-Pipeline-clean}{}}}
 \subsection{Method \code{clean()}}{
 Clean all targets
 \subsection{Usage}{
@@ -170,8 +172,8 @@ Clean all targets
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-annotate"></a>}}
-\if{latex}{\out{\hypertarget{method-annotate}{}}}
+\if{html}{\out{<a id="method-Pipeline-annotate"></a>}}
+\if{latex}{\out{\hypertarget{method-Pipeline-annotate}{}}}
 \subsection{Method \code{annotate()}}{
 Apply annotations to Pipeline
 \subsection{Usage}{
@@ -191,8 +193,8 @@ notes to display on beside the labels (nomnoml) or as tooltips (visNetwork).}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-refresh"></a>}}
-\if{latex}{\out{\hypertarget{method-refresh}{}}}
+\if{html}{\out{<a id="method-Pipeline-refresh"></a>}}
+\if{latex}{\out{\hypertarget{method-Pipeline-refresh}{}}}
 \subsection{Method \code{refresh()}}{
 Refresh Pipeline to check outofdateness
 \subsection{Usage}{
@@ -201,8 +203,8 @@ Refresh Pipeline to check outofdateness
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-nomnoml"></a>}}
-\if{latex}{\out{\hypertarget{method-nomnoml}{}}}
+\if{html}{\out{<a id="method-Pipeline-nomnoml"></a>}}
+\if{latex}{\out{\hypertarget{method-Pipeline-nomnoml}{}}}
 \subsection{Method \code{nomnoml()}}{
 Display the pipeline with nomnoml
 \subsection{Usage}{
@@ -264,8 +266,8 @@ angled (\code{FALSE})}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-visnetwork"></a>}}
-\if{latex}{\out{\hypertarget{method-visnetwork}{}}}
+\if{html}{\out{<a id="method-Pipeline-visnetwork"></a>}}
+\if{latex}{\out{\hypertarget{method-Pipeline-visnetwork}{}}}
 \subsection{Method \code{visnetwork()}}{
 Display the pipeline with nomnoml
 \subsection{Usage}{
@@ -285,8 +287,21 @@ Display the pipeline with nomnoml
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-print"></a>}}
-\if{latex}{\out{\hypertarget{method-print}{}}}
+\if{html}{\out{<a id="method-Pipeline-text_summary"></a>}}
+\if{latex}{\out{\hypertarget{method-Pipeline-text_summary}{}}}
+\subsection{Method \code{text_summary()}}{
+Display a text summary of the pipeline
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{Pipeline$text_summary()}\if{html}{\out{</div>}}
+}
+
+\subsection{Returns}{
+\code{self}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-Pipeline-print"></a>}}
+\if{latex}{\out{\hypertarget{method-Pipeline-print}{}}}
 \subsection{Method \code{print()}}{
 Display
 \subsection{Usage}{
@@ -306,8 +321,8 @@ Display
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-save_visnetwork"></a>}}
-\if{latex}{\out{\hypertarget{method-save_visnetwork}{}}}
+\if{html}{\out{<a id="method-Pipeline-save_visnetwork"></a>}}
+\if{latex}{\out{\hypertarget{method-Pipeline-save_visnetwork}{}}}
 \subsection{Method \code{save_visnetwork()}}{
 Save pipeline visNetwork
 \subsection{Usage}{
@@ -336,8 +351,8 @@ widget. Defaults to white.}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-save_nomnoml"></a>}}
-\if{latex}{\out{\hypertarget{method-save_nomnoml}{}}}
+\if{html}{\out{<a id="method-Pipeline-save_nomnoml"></a>}}
+\if{latex}{\out{\hypertarget{method-Pipeline-save_nomnoml}{}}}
 \subsection{Method \code{save_nomnoml()}}{
 Save pipeline nomnoml
 \subsection{Usage}{
@@ -362,8 +377,28 @@ Save pipeline nomnoml
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-Pipeline-save_text_summary"></a>}}
+\if{latex}{\out{\hypertarget{method-Pipeline-save_text_summary}{}}}
+\subsection{Method \code{save_text_summary()}}{
+Save a text summary of the pipeline
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{Pipeline$save_text_summary(file)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{file}}{File to save text summary into}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+\code{self}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-Pipeline-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-Pipeline-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{
